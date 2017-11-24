@@ -21,8 +21,8 @@ from email_preprocess import preprocess
 features_train, features_test, labels_train, labels_test = preprocess()
 
 ## Slice the data to only 1%
-features_train = features_train[:len(features_train)//100] # / makes a float, // makes an int
-labels_train = labels_train[:len(labels_train)//100]
+# features_train = features_train[:len(features_train)//100] # / makes a float, // makes an int
+# labels_train = labels_train[:len(labels_train)//100]
 
 classifier = SVC(kernel='rbf', C=10000.0)
 t0 = time()
@@ -32,11 +32,16 @@ print("Training time: ", round(time() - t0, 3), "s")
 t0 = time()
 predictions = classifier.predict(features_test)
 # Printing predictions
-print("0 for Sara, 1 for Chris")
-print(predictions[10])
-print(predictions[26])
-print(predictions[50])
+## print("0 for Sara, 1 for Chris")
+## print(predictions[10])
+## print(predictions[26])
+## print(predictions[50])
+
+# Printing Chris Predictions
 print("Prediction time: ", round(time() - t0, 3), "s")
+print("Predictions for Chris:")
+predictionList = list(predictions)
+print(predictionList.count(1))
 
 accuracy = classifier.score(features_test, labels_test)
 print(accuracy)

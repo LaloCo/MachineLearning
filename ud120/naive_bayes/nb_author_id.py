@@ -44,6 +44,7 @@ print(accuracy)
 
 #########################################################
 
-# Naive Bayes times
+# Times & Accuracy
 ## Training time: 1.961s
 ## Prediction time: 0.286s
+## Accuracy: 0.973265073948
