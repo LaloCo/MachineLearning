@@ -8,9 +8,10 @@
     Chris has label 1
 """
     
-import sys
+import sys, os
 from time import time
-sys.path.append("../tools/")
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(os.path.dirname(CURRENT_DIR) + "/tools/")
 from email_preprocess import preprocess
 
 
