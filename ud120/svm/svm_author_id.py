@@ -42,6 +42,8 @@ print("Prediction time: ", round(time() - t0, 3), "s")
 print("Predictions for Chris:")
 predictionList = list(predictions)
 print(predictionList.count(1))
+print("Predictions for Sara:")
+print(predictionList.count(0))
 
 accuracy = classifier.score(features_test, labels_test)
 print(accuracy)
