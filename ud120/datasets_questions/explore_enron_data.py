@@ -15,8 +15,7 @@
     
 """
 
-import pickle
+import pickle, os
 
-enron_data = pickle.load(open("../final_project/final_project_dataset.pkl", "r"))
-
-
+CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+enron_data = pickle.load(open(os.path.dirname(CURRENT_DIR) + "/final_project/final_project_dataset_unix.pkl", "rb"))

@@ -7,8 +7,8 @@ usage: dos2unix.py
 import os
 
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
-original = os.path.dirname(CURRENT_DIR) + "/tools/word_data.pkl"
-destination = os.path.dirname(CURRENT_DIR) + "/tools/word_data_unix.pkl"
+original = os.path.dirname(CURRENT_DIR) + "/final_project/final_project_dataset.pkl"
+destination = os.path.dirname(CURRENT_DIR) + "/final_project/final_project_dataset_unix.pkl"
 
 content = ''
 outsize = 0
