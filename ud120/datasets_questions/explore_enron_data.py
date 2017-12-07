@@ -15,7 +15,49 @@
     
 """
 
-import pickle, os
+import pickle, os, math
+import numpy as np
 
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 enron_data = pickle.load(open(os.path.dirname(CURRENT_DIR) + "/final_project/final_project_dataset_unix.pkl", "rb"))
+
+pois_txt = open(os.path.dirname(CURRENT_DIR) + "/final_project/poi_names.txt", "rb")
+
+## Rows
+# print(len(enron_data))
+
+## Columns
+# print(len(enron_data["SKILLING JEFFREY K"].keys()))
+
+## POIs
+# pois = {p: v for p, v in enron_data.items() if v["poi"] == 1}
+# print(len(pois))
+
+## POIs in file
+# pois = []
+# for ln in pois_txt:
+#     if ln.startswith(b"("):
+#         pois.append(ln)
+# print(len(pois))
+
+## James Prentice's stock
+# stock = enron_data["PRENTICE JAMES"]["total_stock_value"]
+# print(stock)
+
+## Stock options exercised by Jeffrey K Skilling
+# emails = enron_data["SKILLING JEFFREY K"]["exercised_stock_options"]
+# print(emails)
+
+## CEO, Chariman & CFO total payments
+# ceo = enron_data["SKILLING JEFFREY K"]["total_payments"]
+# chairman = enron_data["LAY KENNETH L"]["total_payments"]
+# cfo = enron_data["FASTOW ANDREW S"]["total_payments"]
+# print(ceo)
+# print(chairman)
+# print(cfo)
+
+## Salary and known email address
+# salaries = {p: v for p, v in enron_data.items() if v["salary"] != 'NaN'}
+# email_addressess = {p: v for p, v in enron_data.items() if v["email_address"] != 'NaN'}
+# print(len(salaries))
+# print(len(email_addressess))
