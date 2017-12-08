@@ -24,7 +24,7 @@ dictionary = pickle.load( open(os.path.dirname(CURRENT_DIR) + "/final_project/fi
 ### list the features you want to look at--first item in the 
 ### list will be the "target" feature
 features_list = ["bonus", "salary"]
-data = featureFormat( dictionary, features_list, remove_any_zeroes=True)
+data = featureFormat( dictionary, features_list, remove_any_zeroes=True, sort_keys = os.path.dirname(CURRENT_DIR) + '/tools/python2_lesson06_keys_unix.pkl')
 target, features = targetFeatureSplit( data )
 
 ### training-testing split needed in regression, just like classification
