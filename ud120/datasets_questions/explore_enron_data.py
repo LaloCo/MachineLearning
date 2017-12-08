@@ -61,3 +61,17 @@ pois_txt = open(os.path.dirname(CURRENT_DIR) + "/final_project/poi_names.txt", "
 # email_addressess = {p: v for p, v in enron_data.items() if v["email_address"] != 'NaN'}
 # print(len(salaries))
 # print(len(email_addressess))
+
+## % of people w/o total payments
+# total_payments = {p: v for p, v in enron_data.items() if v["total_payments"] == 'NaN'}
+# print(len(total_payments) / len(enron_data))
+
+## % of POIs w/o total payments
+# pois = {p: v for p, v in enron_data.items() if v["poi"] == 1}
+# total_payments = {p: v for p, v in pois.items() if v["total_payments"] == 'NaN'} # notice the filter happen from pois instead of from enron_data
+# print(len(total_payments) / len(pois))
+
+## numbers + 10
+total_payments = {p: v for p, v in enron_data.items() if v["total_payments"] == 'NaN'}
+print(len(enron_data) + 10)
+print(len(total_payments) + 10)
