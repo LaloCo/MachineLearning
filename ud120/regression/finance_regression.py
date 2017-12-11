@@ -20,7 +20,7 @@ from sklearn.linear_model import LinearRegression
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(CURRENT_DIR) + "/tools/")
 from feature_format import featureFormat, targetFeatureSplit
-dictionary = pickle.load( open(os.path.dirname(CURRENT_DIR) + "/final_project/final_project_dataset_modified_unix.pkl", "rb") )
+dictionary = pickle.load(open(os.path.dirname(CURRENT_DIR) + "/final_project/final_project_dataset_modified_unix.pkl", "rb"))
 
 ### list the features you want to look at--first item in the 
 ### list will be the "target" feature
