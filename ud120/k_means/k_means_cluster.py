@@ -54,6 +54,13 @@ data = featureFormat(data_dict, features_list )
 poi, finance_features = targetFeatureSplit( data )
 
 
+maxValue = data_dict[ max(data_dict, key = lambda x : -float("inf") if data_dict[x][feature_2] == "NaN" else data_dict[x][feature_2])][feature_2]
+
+minValue = data_dict[ min(data_dict, key = lambda x : float("inf") if data_dict[x][feature_2] == "NaN" else data_dict[x][feature_2])][feature_2]
+
+print(maxValue, minValue)
+
+
 ### in the "clustering with 3 features" part of the mini-project,
 ### you'll want to change this line to 
 ### for f1, f2, _ in finance_features:
