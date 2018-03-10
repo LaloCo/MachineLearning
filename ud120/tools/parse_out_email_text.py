@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 from nltk.stem.snowball import SnowballStemmer
-import string
+import string, os
 
 def parseOutText(f):
     """ given an opened email file f, parse out all text below the
@@ -25,7 +25,11 @@ def parseOutText(f):
     words = ""
     if len(content) > 1:
         ### remove punctuation
-        text_string = content[1].translate(str.maketrans("", ""), string.punctuation)
+        ### Python 2: text_string = content[1].translate(str.maketrans("", ""), string.punctuation)
+
+        ### Python 3:
+        table = str.maketrans(dict.fromkeys(string.punctuation))
+        text_string = content[1].translate(table)
 
         ### project part 2: comment out the line below
         words = text_string
@@ -43,7 +47,8 @@ def parseOutText(f):
     
 
 def main():
-    ff = open("../text_learning/test_email.txt", "r")
+    CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
+    ff = open(os.path.dirname(CURRENT_DIR) + "/text_learning/test_email.txt", "r")
     text = parseOutText(ff)
     print(text)
 
