@@ -4,8 +4,8 @@ import os
 import pickle
 import re
 import sys
-
-
+from sklearn.feature_extraction.text import TfidfTransformer
+from sklearn.feature_extraction.text import TfidfVectorizer
 CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(CURRENT_DIR) + "/tools/")
 from parse_out_email_text import parseOutText
@@ -44,7 +44,8 @@ for name, from_person in [("sara", from_sara), ("chris", from_chris)]:
         ### only look at first 200 emails when developing
         ### once everything is working, remove this line to run over full dataset
         temp_counter += 1
-        if temp_counter < 200:
+        ###! if temp_counter < 200:
+        if True:
             path = os.path.join('..', path[:-1])
             print(path)
             email = open(path, "r")
@@ -75,9 +76,11 @@ pickle.dump( word_data, open("your_word_data.pkl", "wb") )
 pickle.dump( from_data, open("your_email_authors.pkl", "wb") )
 
 
-print(word_data[152])
-
 
 ### in Part 4, do TfIdf vectorization here
+vectorizer = TfidfVectorizer(stop_words="english")
+bag_of_words = vectorizer.fit(word_data)
+bag_of_words = vectorizer.transform(word_data)
 
-
+words = vectorizer.get_feature_names()
+print(len(words))
