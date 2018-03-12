@@ -83,4 +83,4 @@ bag_of_words = vectorizer.fit(word_data)
 bag_of_words = vectorizer.transform(word_data)
 
 words = vectorizer.get_feature_names()
-print(len(words))
+print(words[34597])

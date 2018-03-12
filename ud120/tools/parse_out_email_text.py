@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
-from nltk.stem.snowball import SnowballStemmer
 import string, os
+from nltk.stem.snowball import SnowballStemmer
 
 def parseOutText(f):
     """ given an opened email file f, parse out all text below the
@@ -39,12 +39,10 @@ def parseOutText(f):
         ### space between each stemmed word)
         stemmer = SnowballStemmer("english")
         for word in text_string.split():
-            wordToAdd = stemmer.stem(word)
-            words += wordToAdd + " "
+            word_to_add = stemmer.stem(word)
+            words += word_to_add + " "
 
     return words
-
-    
 
 def main():
     CURRENT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -56,4 +54,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
